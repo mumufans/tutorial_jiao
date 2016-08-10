@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- No copyright or license for configuration file, details here are not considered a creative work. -->
+
+<!-- NOTE: for default settings, examples, and comments see the MoquiDefaultConf.xml file at
+    https://github.com/moqui/moqui-framework/blob/master/framework/src/main/resources/MoquiDefaultConf.xml -->
+<moqui-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/moqui-conf-2.0.xsd">
+    <entity-facade crypt-pass="MoquiDefaultPassword:CHANGEME">
+        <!-- add datasource elements here to configure databases -->
+        <datasource group-name="transactional" database-conf-name="mysql" schema-name="">
+        <inline-jdbc><xa-properties user="root" password="" pinGlobalTxToPhysicalConnection="true"
+                                    serverName="127.0.0.1" port="3306" databaseName="MoquiDEFAULT" autoReconnectForPools="true"
+                                    useUnicode="true" encoding="UTF-8"/></inline-jdbc>
+        </datasource>
+    </entity-facade>
+
+</moqui-conf>

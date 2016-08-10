@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-2.0.xsd"
+        require-authentication="anonymous-all">
+    <parameter name="tutorialId"/>
+    <transition name="updateTutorial">
+        <service-call name="update#tutorial.Tutorial"/>
+        <default-response url="../FindTutorial"/>
+    </transition>
+    <actions>
+        <entity-find-one entity-name="tutorial.Tutorial" value-field="tutorialVar">
+            <field-map field-name="tutorialId" from="tutorialId"></field-map>
+        </entity-find-one>
+    </actions>
+    <widgets>
+        <form-single name="EditTutorial" map="tutorialVar" transition="updateTutorial">
+            <field name="tutorialId"><default-field>
+                <hidden></hidden>
+            </default-field></field>
+            <field name="name"><default-field>
+                <text-line></text-line>
+            </default-field></field>
+            <field name="description"><default-field>
+                <text-area></text-area>
+            </default-field></field>
+            <field name="submitButton"><default-field title="Save">
+                <submit></submit>
+            </default-field></field>
+        </form-single>
+
+    </widgets>
+
+
+</screen>
